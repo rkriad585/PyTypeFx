@@ -22,7 +22,7 @@ TypeFx is a versatile and easy-to-use Python library designed to bring your term
 You can install TypeFx using pip:
 
 ```bash
-pip install typefx
+pip install PyTypeFx==0.1.0
 ```
 
 ## Usage
@@ -32,7 +32,7 @@ pip install typefx
 The core of TypeFx is its writer functions. Here's a simple example using the `TypeWriter`:
 
 ```python
-from TypeFx import TypeWriter
+from PyTypeFx import TypeWriter
 
 TypeWriter("Hello, World!", delay=0.05)
 ```
@@ -64,7 +64,7 @@ TypeFx comes with a variety of writers, each providing a different effect:
 **Example:**
 
 ```python
-from TypeFx import RainbowWriter, GlitchWriter
+from PyTypeFx import RainbowWriter, GlitchWriter
 
 RainbowWriter("This is a rainbow effect!", delay=0.03)
 GlitchWriter("This is a glitch effect!", delay=0.01)
@@ -75,7 +75,7 @@ GlitchWriter("This is a glitch effect!", delay=0.01)
 The `@typefx` decorator allows you to easily apply typing effects to the output of any function.
 
 ```python
-from TypeFx import typefx
+from PyTypeFx import typefx
 
 @typefx(hex_colors=["#FF0000", "#00FF00", "#0000FF"], delay=0.03)
 def my_message():
@@ -156,7 +156,7 @@ The `constant` module contains default values that can be customized:
 ### Gradient Text
 
 ```python
-from TypeFx import GradientWriter
+from PyTypeFx import GradientWriter
 
 GradientWriter("This is a beautiful gradient!", start_hex="#FF00FF", end_hex="#00FFFF", delay=0.02)
 ```
@@ -164,7 +164,7 @@ GradientWriter("This is a beautiful gradient!", start_hex="#FF00FF", end_hex="#0
 ### Game Dialog
 
 ```python
-from TypeFx import GameDialog
+from PyTypeFx import GameDialog
 
 GameDialog(speaker="Hero", text="I must defeat the final boss!", delay=0.04, sound=True)
 ```
@@ -172,7 +172,7 @@ GameDialog(speaker="Hero", text="I must defeat the final boss!", delay=0.04, sou
 ### Chaining Effects
 
 ```python
-from TypeFx import TypeWriter, DelWriter, BlinkEffect
+from PyTypeFx import TypeWriter, DelWriter, BlinkEffect
 
 TypeWriter("Preparing for deletion...")
 DelWriter("This message will self-destruct.", hold=2)
