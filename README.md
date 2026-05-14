@@ -9,6 +9,9 @@ TypeFx is a versatile and easy-to-use Python library designed to bring your term
 ## Features
 
 - **Multiple Typing Effects**: A rich collection of writer functions including `TypeWriter`, `RainbowWriter`, `GlitchWriter`, `BounceWriter`, and more.
+- **Banners & ASCII Art**: Full suite of banner templates — `project_banner`, `hero_banner`, `alert_banner`, `box`, `divider`, `progress_bar`, `tag`, `frame`, and more.
+- **ASCII Animals**: 50+ built-in ASCII art animals (cats, dogs, bears, penguins, dragons, wolves, and more).
+- **Kaomoji & Emoji**: 600+ kaomoji across 30+ categories, 90+ Unicode emoji symbols.
 - **Color and Styling**: Extensive color support, including basic, bright, and extended named colors, as well as HEX and RGB.
 - **Gradient Text**: Create beautiful gradient effects on your text.
 - **Decorator Support**: A simple `@typefx` decorator to apply effects to function outputs.
@@ -68,6 +71,56 @@ from PyTypeFx import RainbowWriter, GlitchWriter
 
 RainbowWriter("This is a rainbow effect!", delay=0.03)
 GlitchWriter("This is a glitch effect!", delay=0.01)
+```
+
+### Banners & ASCII Art
+
+TypeFx includes a complete banner generation system with highly customizable templates:
+
+```python
+from typefx.banners import (
+    box, project_banner, hero_banner, alert_banner,
+    progress_bar, tag, frame, divider, centered_banner,
+    animal, kaomoji, emoji, buddy, buddy_multi,
+)
+
+# Project banner with customizations
+print(project_banner("MyApp", tagline="v2.0", version="2.0.1"))
+
+# Box with title, color, alignment, padding
+print(box("Customized content", style="double", title="Output",
+          color=BRIGHT_CYAN, align="center", padding=1, width=40))
+
+# Hero banner
+print(hero_banner("Welcome!", color=BRIGHT_CYAN, width=60))
+
+# Alert banners (info, success, warning, error, critical)
+print(alert_banner("Operation completed", level="success"))
+
+# Progress bar
+print(progress_bar(75, width=20, label="Download"))
+
+# Tag / badge
+print(tag("INFO", color=BRIGHT_CYAN, bracket="square"))
+
+# Frame ASCII art
+print(frame("  Hello\n  World", box_style="double"))
+
+# Divider with label
+print(divider(length=40, label="Section", color=CYAN, align="center"))
+
+# Get a random ASCII animal
+my_animal = animal()
+print(animal("dragon"))
+
+# Kaomoji by category
+kaomoji("happy")
+
+# Buddy mascot
+buddy("MyApp", animal_name="cat1", color=BRIGHT_CYAN)
+
+# Multiple animals as mascots
+buddy_multi("MyApp", animal_names=["cat1", "fox", "penguin2"])
 ```
 
 ### Decorator
