@@ -279,9 +279,20 @@ print(section_header("Features", color=CYAN, align="center"))
 📚 For full documentation, see the [`docs/`](docs/index.md) folder:
 - [Overview](docs/index.md)
 - [API Reference](docs/api.md)
+- [Colors Reference](docs/colors.md)
+- [Styles Reference](docs/styles.md)
+- [Writers Reference](docs/writers.md)
 - [Usage Guide](docs/guide.md)
 - [Examples](docs/examples.md)
 - [Changelog](docs/changelog.md)
+
+## Contributing
+
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for development setup, testing, code style, and pull request guidelines.
+
+## Code of Conduct
+
+This project follows the [Contributor Covenant](CODE_OF_CONDUCT.md). See [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) for details.
 
 ### Decorator
 

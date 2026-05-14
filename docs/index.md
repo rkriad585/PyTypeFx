@@ -27,6 +27,18 @@ All functions accept optional parameters for:
 - `title` — Title text for boxes
 - `title_color` — Title text color
 
+## Related Docs
+
+| Module | Doc |
+| --- | --- |
+| Banners | [`docs/api.md`](api.md) (this doc) |
+| Usage Guide | [`docs/guide.md`](guide.md) |
+| Examples | [`docs/examples.md`](examples.md) |
+| Colors | [`docs/colors.md`](colors.md) |
+| Styles | [`docs/styles.md`](styles.md) |
+| Writers | [`docs/writers.md`](writers.md) |
+| Changelog | [`docs/changelog.md`](changelog.md) |
+
 ## Quick Examples
 
 ```python
