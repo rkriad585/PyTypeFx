@@ -1,10 +1,46 @@
+# Python
 __pycache__/
 *.py[cod]
+*.pyo
+*.egg
 *.egg-info/
+.eggs/
+
+# Testing
 .pytest_cache/
 .tox/
 .coverage
+.coverage.*
+*.cover
 htmlcov/
+coverage.xml
+nosetests.xml
+test-results.xml
+
+# Build artifacts
 dist/
 build/
-*.egg
+*.whl
+*.tar.gz
+*.so
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+venv/
+.venv/
+env/
+virtualenv/
+
+# Project specific
+*.db
+*.sqlite3
