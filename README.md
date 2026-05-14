@@ -1,24 +1,86 @@
 # TypeFx
 
 [![Python](https://img.shields.io/badge/Python-3.7%2B-blue.svg)](https://www.python.org/downloads/)
+[![Version](https://img.shields.io/badge/version-2.0.1-green.svg)](https://github.com/rkriad585/PyTypeFx)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-A Python library for creating captivating terminal typing effects with ease.
+A Python library for creating captivating terminal typing effects, ASCII art banners, and mascot displays with ease.
 
-TypeFx is a versatile and easy-to-use Python library designed to bring your terminal applications to life with a variety of dynamic and customizable typing effects. Whether you're creating a command-line game, a stylish installation script, or just want to add a bit of flair to your program's output, TypeFx provides the tools you need.
+TypeFx brings your terminal applications to life with dynamic typing effects, customizable banner templates, 50+ ASCII art animals, 600+ kaomoji expressions, and 90+ Unicode emoji symbols — all with zero external dependencies.
+
+## Quick Start
+
+```python
+from typefx import project_banner, hero_banner, alert_banner, progress_bar, tag, divider, animal, kaomoji, buddy
+from typefx.colors import BRIGHT_CYAN, CYAN, GREEN
+
+# Project banner
+print(project_banner("MyApp", tagline="v2.0", version="1.0.0"))
+
+# Alert
+print(alert_banner("Server started", level="success", width=50))
+
+# Progress bar
+print(progress_bar(75, width=20, label="Loading", color=GREEN))
+
+# ASCII animal
+print(animal("dragon"))
+
+# Buddy mascot
+buddy("MyApp", animal_name="cat1", color=BRIGHT_CYAN, message="Ready!")
+```
 
 ## Features
 
-- **Multiple Typing Effects**: A rich collection of writer functions including `TypeWriter`, `RainbowWriter`, `GlitchWriter`, `BounceWriter`, and more.
-- **Banners & ASCII Art**: Full suite of banner templates — `project_banner`, `hero_banner`, `alert_banner`, `box`, `divider`, `progress_bar`, `tag`, `frame`, and more.
-- **ASCII Animals**: 50+ built-in ASCII art animals (cats, dogs, bears, penguins, dragons, wolves, and more).
-- **Kaomoji & Emoji**: 600+ kaomoji across 30+ categories, 90+ Unicode emoji symbols.
-- **Color and Styling**: Extensive color support, including basic, bright, and extended named colors, as well as HEX and RGB.
-- **Gradient Text**: Create beautiful gradient effects on your text.
-- **Decorator Support**: A simple `@typefx` decorator to apply effects to function outputs.
-- **Sound Effects**: Add auditory feedback to your typing effects (platform-dependent).
-- **Command-Line Interface**: A built-in CLI for applying effects directly from your terminal.
-- **Customizable**: Easily configure delay, speed, colors, and other parameters.
-- **No Dependencies**: Pure Python, with no external libraries required.
+### Typing Effects
+| Writer | Description |
+| --- | --- |
+| `TypeWriter` | Simulates standard typing |
+| `RainbowWriter` | Types text with a rainbow color effect |
+| `GlitchWriter` | Types with a glitch/distortion effect |
+| `GradientWriter` | Types text with a smooth color gradient |
+| `BounceWriter` | Types forwards then deletes |
+| `ReverseWriter` | Types text in reverse |
+| `AutoCompleteWriter` | Ghost autocomplete suggestion |
+| `GameDialog` | Game-style dialog box |
+| and 10+ more... | |
+
+### Banners & ASCII Art
+| Function | Description |
+| --- | --- |
+| `project_banner()` | Full project header with name, tagline, version |
+| `hero_banner()` | Big attention-grabbing header |
+| `alert_banner()` | Contextual alerts (info/success/warning/error/critical) |
+| `box()` | Multi-style box layouts |
+| `progress_bar()` | Visual progress bars |
+| `tag()` | Badges and labels |
+| `divider()` | Horizontal dividers with labels |
+| `frame()` | Frame ASCII art inside boxes |
+| `centered_banner()` | Text centered between fill characters |
+| and 10+ more... | |
+
+### ASCII Animals — 50+ Built-in
+cats, dogs, bears, penguins, bunnies, birds, fish, fox, pig, frog, koala, panda, turtle, monkey, octopus, lion, horse, cow, sheep, elephant, whale, dolphin, shark, snake, butterfly, eagle, wolf, deer, dragon, bat, seal, crab, dino, and more.
+
+### Kaomoji — 600+ Japanese Emoticons
+30 categories: happy, sad, angry, love, shrug, cat, dog, bear, cute, surprise, sleep, dance, party, greeting, wave, hug, sorry, thank, excited, fight, magic, food, drink, music, rain, and more.
+
+### Emoji Symbols — 90+ Unicode
+Hearts, stars, arrows, zodiac signs, chess pieces, math symbols, currency, weather, geometric shapes, and more.
+
+### Buddy / Mascot System
+Combine any ASCII animal with a project name for mascot displays. Supports single, boxed, and multi-animal layouts.
+
+### Color System
+- 16 basic + 16 bright ANSI colors
+- 50+ extended named colors (Coral, Mint, Plum, Slate, etc.)
+- Background color variants for all
+- HEX/RGB to ANSI converters
+- 256-color 8-bit helpers
+- 6 curated palettes: OCEAN, SUNSET, FOREST, CYBER, NOIR, ROSE
+
+### Style Presets
+40+ composable style presets: ERROR, SUCCESS, WARNING, INFO, TITLE, HEADING, CODE, HIGHLIGHT, BANNER, NEON, GHOST, and more.
 
 ## Installation
 
@@ -26,6 +88,14 @@ You can install TypeFx using pip:
 
 ```bash
 pip install PyTypeFx==0.1.0
+```
+
+Or install from source:
+
+```bash
+git clone https://github.com/rkriad585/PyTypeFx.git
+cd PyTypeFx
+pip install -e .
 ```
 
 ## Usage
@@ -75,53 +145,143 @@ GlitchWriter("This is a glitch effect!", delay=0.01)
 
 ### Banners & ASCII Art
 
-TypeFx includes a complete banner generation system with highly customizable templates:
+TypeFx includes a complete banner generation system with highly customizable templates. All functions support optional `color`, `align`, `padding`, `width`, and box-specific params while maintaining full backward compatibility.
+
+#### Box Layouts
 
 ```python
-from typefx.banners import (
-    box, project_banner, hero_banner, alert_banner,
-    progress_bar, tag, frame, divider, centered_banner,
-    animal, kaomoji, emoji, buddy, buddy_multi,
-)
+from typefx import box
+from typefx.colors import BRIGHT_CYAN
 
-# Project banner with customizations
-print(project_banner("MyApp", tagline="v2.0", version="2.0.1"))
+# Minimal box
+print(box("Hello"))
 
-# Box with title, color, alignment, padding
-print(box("Customized content", style="double", title="Output",
-          color=BRIGHT_CYAN, align="center", padding=1, width=40))
+# With title and style
+print(box("Content here", style="double", title="Output"))
+
+# Fully customized
+print(box("Customized", color=BRIGHT_CYAN, align="center",
+          padding=1, width=30, title="Demo"))
+```
+
+#### Project & Hero Banners
+
+```python
+from typefx import project_banner, hero_banner
+from typefx.colors import BRIGHT_CYAN, GREEN
+
+# Project header
+print(project_banner("MyApp", tagline="Terminal Text Effects",
+                     version="2.0.1", color=BRIGHT_CYAN, accent=GREEN))
 
 # Hero banner
-print(hero_banner("Welcome!", color=BRIGHT_CYAN, width=60))
+print(hero_banner("Welcome to MyApp", color=BRIGHT_CYAN, width=60))
+```
 
-# Alert banners (info, success, warning, error, critical)
-print(alert_banner("Operation completed", level="success"))
+#### Alert Banners
 
-# Progress bar
-print(progress_bar(75, width=20, label="Download"))
+```python
+from typefx import alert_banner
 
-# Tag / badge
-print(tag("INFO", color=BRIGHT_CYAN, bracket="square"))
+print(alert_banner("Everything OK", level="success", width=50))
+print(alert_banner("Disk at 85%", level="warning", width=50))
+print(alert_banner("Connection lost", level="critical", width=50))
+```
 
-# Frame ASCII art
-print(frame("  Hello\n  World", box_style="double"))
+#### Progress Bars
 
-# Divider with label
-print(divider(length=40, label="Section", color=CYAN, align="center"))
+```python
+from typefx import progress_bar
+from typefx.colors import GREEN, YELLOW
 
-# Get a random ASCII animal
-my_animal = animal()
+print(progress_bar(25, width=20, label="Download"))
+print(progress_bar(50, width=20, label="Processing"))
+print(progress_bar(100, width=20, label="Complete", color=GREEN))
+```
+
+#### ASCII Animals
+
+```python
+from typefx import animal, animal_names
+
+# Specific animal
 print(animal("dragon"))
 
-# Kaomoji by category
-kaomoji("happy")
+# Random animal
+print(animal())
 
-# Buddy mascot
+# List all names
+print(animal_names())
+```
+
+#### Kaomoji (Japanese Emoticons)
+
+```python
+from typefx import kaomoji, kaomoji_categories
+
+# By category
+print(kaomoji("happy"))
+print(kaomoji("fight"))
+print(kaomoji("cat"))
+
+# List all categories
+print(kaomoji_categories())
+
+# Random
+print(kaomoji())
+```
+
+#### Buddy / Mascot
+
+```python
+from typefx import buddy, buddy_box, buddy_multi
+from typefx.colors import BRIGHT_CYAN
+
+# Single mascot
 buddy("MyApp", animal_name="cat1", color=BRIGHT_CYAN)
 
-# Multiple animals as mascots
-buddy_multi("MyApp", animal_names=["cat1", "fox", "penguin2"])
+# With message
+buddy("MyApp", animal_name="penguin2", color=BRIGHT_CYAN,
+      message="Making terminals beautiful!")
+
+# Boxed
+buddy_box("MyApp", tagline="v2.0", animal_name="fox", color=BRIGHT_CYAN)
+
+# Multi-animal team
+buddy_multi("MyApp", animal_names=["cat1", "fox", "penguin2"],
+            color=BRIGHT_CYAN)
 ```
+
+#### Tags, Dividers, Frames & More
+
+```python
+from typefx import tag, divider, frame, centered_banner, section_header
+from typefx.colors import CYAN, BRIGHT_CYAN
+
+# Tags / badges
+print(tag("INFO", color=BRIGHT_CYAN, bracket="square"))
+
+# Divider with label
+print(divider(length=50, label="Section", color=CYAN, align="center"))
+
+# Frame art
+print(frame("  Hello\n  World", box_style="double"))
+
+# Centered banner
+print(centered_banner("★ PyTypeFx ★", width=50, color=BRIGHT_CYAN))
+
+# Section header
+print(section_header("Features", color=CYAN, align="center"))
+```
+
+---
+
+📚 For full documentation, see the [`docs/`](docs/index.md) folder:
+- [Overview](docs/index.md)
+- [API Reference](docs/api.md)
+- [Usage Guide](docs/guide.md)
+- [Examples](docs/examples.md)
+- [Changelog](docs/changelog.md)
 
 ### Decorator
 
