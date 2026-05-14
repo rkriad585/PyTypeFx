@@ -57,3 +57,44 @@ def test_ansi_constants_unique():
     assert BRIGHT_BLACK == "\033[90m"
     assert BG_GRAY == "\033[100m"
     assert BG_BRIGHT_BLACK == "\033[100m"
+
+
+def test_new_format_codes():
+    from typefx.colors import CONCEAL, OVERLINE, FRAME, ENCIRCLE, STRIKETHROUGH
+    assert CONCEAL == "\033[8m"
+    assert STRIKETHROUGH == "\033[9m"
+    assert OVERLINE == "\033[53m"
+    assert FRAME == "\033[51m"
+    assert ENCIRCLE == "\033[52m"
+
+
+def test_new_foreground_colors():
+    from typefx.colors import AMBER, CRIMSON, SALMON, PLUM, SLATE, TOMATO, CHOCOLATE
+    assert AMBER == "\033[38;2;255;191;0m"
+    assert CRIMSON == "\033[38;2;220;20;60m"
+    assert SALMON == "\033[38;2;250;128;114m"
+    assert PLUM == "\033[38;2;221;160;221m"
+    assert SLATE == "\033[38;2;112;128;144m"
+    assert TOMATO == "\033[38;2;255;99;71m"
+    assert CHOCOLATE == "\033[38;2;210;105;30m"
+
+
+def test_new_background_colors():
+    from typefx.colors import BG_AMBER, BG_CRIMSON, BG_SALMON, BG_PLUM, BG_SLATE, BG_TOMATO, BG_KHAKI
+    assert BG_AMBER == "\033[48;2;255;191;0m"
+    assert BG_CRIMSON == "\033[48;2;220;20;60m"
+    assert BG_SALMON == "\033[48;2;250;128;114m"
+    assert BG_PLUM == "\033[48;2;221;160;221m"
+    assert BG_SLATE == "\033[48;2;112;128;144m"
+    assert BG_TOMATO == "\033[48;2;255;99;71m"
+    assert BG_KHAKI == "\033[48;2;240;230;140m"
+
+
+def test_new_gradient_colors():
+    from typefx.colors import PINE_GREEN, SAGE_GREEN, LILAC, FUCHSIA, MIDNIGHT_BLUE, WALNUT
+    assert PINE_GREEN == "\033[38;2;1;68;33m"
+    assert SAGE_GREEN == "\033[38;2;154;174;121m"
+    assert LILAC == "\033[38;2;200;162;200m"
+    assert FUCHSIA == "\033[38;2;255;0;255m"
+    assert MIDNIGHT_BLUE == "\033[38;2;25;25;112m"
+    assert WALNUT == "\033[38;2;95;58;32m"
