@@ -202,3 +202,49 @@ def test_meta_style():
     from typefx.colors import BRIGHT_BLUE, ITALIC
     assert META["color"] == BRIGHT_BLUE
     assert ITALIC in META["style"]
+
+
+def test_section_style():
+    from typefx.styles import SECTION
+    from typefx.colors import CYAN, BOLD, DOUBLE_UNDERLINE
+    assert SECTION["color"] == CYAN
+    assert BOLD in SECTION["style"]
+    assert DOUBLE_UNDERLINE in SECTION["style"]
+
+
+def test_box_title_style():
+    from typefx.styles import BOX_TITLE
+    from typefx.colors import BRIGHT_CYAN, BOLD, UNDERLINE
+    assert BOX_TITLE["color"] == BRIGHT_CYAN
+    assert BOLD in BOX_TITLE["style"]
+    assert UNDERLINE in BOX_TITLE["style"]
+
+
+def test_box_error_style():
+    from typefx.styles import BOX_ERROR
+    from typefx.colors import RED, BOLD, INVERT
+    assert BOX_ERROR["color"] == RED
+    assert BOLD in BOX_ERROR["style"]
+    assert INVERT in BOX_ERROR["style"]
+
+
+def test_box_success_style():
+    from typefx.styles import BOX_SUCCESS
+    from typefx.colors import GREEN, BOLD, INVERT
+    assert BOX_SUCCESS["color"] == GREEN
+    assert BOLD in BOX_SUCCESS["style"]
+    assert INVERT in BOX_SUCCESS["style"]
+
+
+def test_separator_style():
+    from typefx.styles import SEPARATOR
+    from typefx.colors import BRIGHT_BLACK, BIM
+    assert SEPARATOR["color"] == BRIGHT_BLACK
+    assert BIM in SEPARATOR["style"]
+
+
+def test_anchor_style():
+    from typefx.styles import ANCHOR
+    from typefx.colors import BRIGHT_CYAN, UNDERLINE
+    assert ANCHOR["color"] == BRIGHT_CYAN
+    assert UNDERLINE in ANCHOR["style"]

@@ -1,4 +1,4 @@
-__version__ = "0.1.0"
+__version__ = "2.0.1"
 __author__ = "RK Riad Khan"
 __email__ = "rkriad585@gmail.com"
 
@@ -6,9 +6,6 @@ from typefx._types import ColorInput, Position, Speed
 
 from typefx.colors import (
     AQUA,
-    bg_hex_to_ansi,
-    bg_rgb_to_ansi,
-    colorize,
     BARK_BROWN,
     BG_AQUA,
     BG_BLACK,
@@ -70,11 +67,16 @@ from typefx.colors import (
     BLINK_FAST,
     BLINK_SLOW,
     CONCEAL,
-    FRAME,
+    CURLY_UNDERLINE,
+    DASHED_UNDERLINE,
+    DOTTED_UNDERLINE,
+    DOUBLE_UNDERLINE,
     ENCIRCLE,
+    FRAME,
     OVERLINE,
-    FRAME,
-    ENCIRCLE,
+    SHADOW,
+    SUBSCRIPT,
+    SUPERSCRIPT,
     BLUE,
     BOLD,
     BRIGHT,
@@ -86,9 +88,11 @@ from typefx.colors import (
     BRIGHT_GREEN,
     BRIGHT_HEX,
     BRIGHT_MAGENTA,
+    bg_256,
     bg_hex_to_ansi,
     bg_rgb_to_ansi,
     colorize,
+    fg_256,
     BRIGHT_RED,
     BRIGHT_WHITE,
     BRIGHT_YELLOW,
@@ -260,6 +264,16 @@ from typefx.writers import (
     SoundWriter,
     ThinkWriter,
     TypeWriter,
+)
+from typefx.banners import (
+    banner_arrow,
+    banner_block,
+    banner_dash,
+    box,
+    divider,
+    project_banner,
+    rule,
+    section_header,
 )
 
 __all__ = [
@@ -514,4 +528,31 @@ __all__ = [
     "STEEL_BLUE",
     "WALNUT",
     "WINE",
+    "ANCHOR",
+    "banner_arrow",
+    "banner_block",
+    "banner_dash",
+    "bg_256",
+    "BOX_ERROR",
+    "BOX_HINT",
+    "BOX_LABEL",
+    "BOX_SUCCESS",
+    "BOX_TITLE",
+    "box",
+    "CURLY_UNDERLINE",
+    "DASHED_UNDERLINE",
+    "divider",
+    "DOTTED_UNDERLINE",
+    "DOUBLE_UNDERLINE",
+    "fg_256",
+    "HIGHLIGHT_BG",
+    "project_banner",
+    "rule",
+    "SECTION",
+    "section_header",
+    "SEPARATOR",
+    "SHADOW",
+    "SUBSECTION",
+    "SUBSCRIPT",
+    "SUPERSCRIPT",
 ]

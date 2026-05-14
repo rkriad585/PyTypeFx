@@ -28,6 +28,14 @@ STRIKETHROUGH = "\033[9m"
 OVERLINE = "\033[53m"
 FRAME = "\033[51m"
 ENCIRCLE = "\033[52m"
+OVERLINE = "\033[53m"
+DOUBLE_UNDERLINE = "\033[21m"
+CURLY_UNDERLINE = "\033[4:3m"
+DOTTED_UNDERLINE = "\033[4:4m"
+DASHED_UNDERLINE = "\033[4:5m"
+SHADOW = "\033[1:2m"
+SUPERSCRIPT = "\033[73m"
+SUBSCRIPT = "\033[74m"
 BRIGHT = "\033[1m"
 BRIGHT_FOREGROUND = "\033[9m"
 BRIGHT_BACKGROUND = "\033[10m"
@@ -192,6 +200,13 @@ AZURE = "\033[38;2;240;255;255m"
 CRANBERRY = "\033[38;2;143;0;35m"
 WINE = "\033[38;2;114;47;55m"
 
+# ANSI 8-bit / 256-color helpers
+def fg_256(n: int) -> str:
+    return f"\033[38;5;{n}m"
+
+def bg_256(n: int) -> str:
+    return f"\033[48;5;{n}m"
+
 # =========================
 # Preset Palettes
 # =========================
@@ -202,16 +217,21 @@ PALETTES = {
     "INFO": ["#3498DB", "#2980B9", "#1F618D"],
     "NEON": ["#39FF14", "#FF00FF", "#00FFFF", "#FFFF00"],
     "PASTEL": ["#FFB6C1", "#B0E0E6", "#98FB98", "#E6E6FA"],
-    # 🌿 Garden Theme
+    "OCEAN": ["#0077B6", "#00B4D8", "#90E0EF", "#CAF0F8"],
+    "SUNSET": ["#FF6B6B", "#FFA07A", "#FFD93D", "#6BCB77"],
+    "FOREST": ["#1B4332", "#2D6A4F", "#40916C", "#52B788"],
     "GARDEN": [
-        "#228B22",  # Leaf Green
-        "#7CFC00",  # Grass
-        "#FFDB58",  # Sunflower
-        "#FF6384",  # Rose
-        "#87CEEB",  # Sky
-        "#654321",  # Soil
-        "#B57EDC",  # Lavender
+        "#228B22",
+        "#7CFC00",
+        "#FFDB58",
+        "#FF6384",
+        "#87CEEB",
+        "#654321",
+        "#B57EDC",
     ],
+    "CYBER": ["#00FF41", "#FF00FF", "#00FFFF", "#FFFF00", "#FF6600"],
+    "NOIR": ["#1A1A1A", "#333333", "#666666", "#999999", "#CCCCCC"],
+    "ROSE": ["#FFE4E1", "#FFC0CB", "#FF69B4", "#DB7093", "#C71585"],
 }
 
 

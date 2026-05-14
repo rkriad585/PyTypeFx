@@ -60,12 +60,32 @@ def test_ansi_constants_unique():
 
 
 def test_new_format_codes():
-    from typefx.colors import CONCEAL, OVERLINE, FRAME, ENCIRCLE, STRIKETHROUGH
+    from typefx.colors import (
+        CONCEAL,
+        CURLY_UNDERLINE,
+        DASHED_UNDERLINE,
+        DOTTED_UNDERLINE,
+        DOUBLE_UNDERLINE,
+        ENCIRCLE,
+        FRAME,
+        OVERLINE,
+        SHADOW,
+        STRIKETHROUGH,
+        SUBSCRIPT,
+        SUPERSCRIPT,
+    )
     assert CONCEAL == "\033[8m"
     assert STRIKETHROUGH == "\033[9m"
     assert OVERLINE == "\033[53m"
     assert FRAME == "\033[51m"
     assert ENCIRCLE == "\033[52m"
+    assert DOUBLE_UNDERLINE == "\033[21m"
+    assert CURLY_UNDERLINE == "\033[4:3m"
+    assert DOTTED_UNDERLINE == "\033[4:4m"
+    assert DASHED_UNDERLINE == "\033[4:5m"
+    assert SHADOW == "\033[1:2m"
+    assert SUPERSCRIPT == "\033[73m"
+    assert SUBSCRIPT == "\033[74m"
 
 
 def test_new_foreground_colors():
@@ -88,6 +108,32 @@ def test_new_background_colors():
     assert BG_SLATE == "\033[48;2;112;128;144m"
     assert BG_TOMATO == "\033[48;2;255;99;71m"
     assert BG_KHAKI == "\033[48;2;240;230;140m"
+
+
+def test_fg_256():
+    from typefx.colors import fg_256
+    assert fg_256(0) == "\033[38;5;0m"
+    assert fg_256(255) == "\033[38;5;255m"
+    assert fg_256(196) == "\033[38;5;196m"
+
+
+def test_bg_256():
+    from typefx.colors import bg_256
+    assert bg_256(0) == "\033[48;5;0m"
+    assert bg_256(255) == "\033[48;5;255m"
+    assert bg_256(196) == "\033[48;5;196m"
+
+
+def test_new_palettes():
+    from typefx.colors import PALETTES
+    assert "OCEAN" in PALETTES
+    assert "SUNSET" in PALETTES
+    assert "FOREST" in PALETTES
+    assert "CYBER" in PALETTES
+    assert "NOIR" in PALETTES
+    assert "ROSE" in PALETTES
+    assert len(PALETTES["OCEAN"]) == 4
+    assert len(PALETTES["CYBER"]) == 5
 
 
 def test_new_gradient_colors():

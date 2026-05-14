@@ -1,5 +1,15 @@
 from time import sleep
 
+from typefx.banners import (
+    banner_arrow,
+    banner_block,
+    banner_dash,
+    box,
+    divider,
+    project_banner,
+    rule,
+    section_header,
+)
 from typefx.colors import (
     AMBER,
     AQUA,
@@ -159,10 +169,43 @@ def demo_apply_style():
     print(f"  {combo}")
 
 
-def main():
-    print(f"{BOLD}{BRIGHT_CYAN}{OVERLINE}  PyTypeFx Demo  {RESET}")
-    print(f"  {colorize('New colors & style presets', BRIGHT_GREEN, BIM)}")
+def demo_banners():
+    print(f"\n{BOLD}{BRIGHT_WHITE}━━━ Banners ━━━{RESET}")
 
+    print(f"\n{BIM}project_banner:{RESET}")
+    print(project_banner("PyTypeFx", tagline="Terminal Text Effects", version="2.0.1"))
+
+    print(f"\n{BIM}box (single):{RESET}")
+    print(box("Hello from PyTypeFx!", style="single"))
+
+    print(f"\n{BIM}box (double, titled):{RESET}")
+    print(box("Content here", style="double", title="Output"))
+
+    print(f"\n{BIM}box (rounded):{RESET}")
+    print(box("Rounded Box", style="rounded"))
+
+    print(f"\n{BIM}banner_block:{RESET}")
+    print(banner_block("PyTypeFx"))
+
+    print(f"\n{BIM}banner_arrow:{RESET}")
+    print(banner_arrow("Next Step"))
+
+    print(f"\n{BIM}banner_dash:{RESET}")
+    print(banner_dash("Feature Demo"))
+
+    print(f"\n{BIM}section_header:{RESET}")
+    print(section_header("Installation", color=CYAN))
+
+    print(f"\n{BIM}divider:{RESET}")
+    print(divider(char="=", length=30))
+    print(divider(label="END", length=30))
+
+
+def main():
+    print(f"{BOLD}{BRIGHT_CYAN}{OVERLINE}  PyTypeFx Demo v2.0.1  {RESET}")
+    print(f"  {colorize('Expanded colors, banners & more', BRIGHT_GREEN, BIM)}")
+
+    demo_banners()
     demo_colors()
     demo_styles()
     demo_writers()

@@ -30,6 +30,7 @@ from typefx.colors import (
     BRIGHT_WHITE,
     BRIGHT_YELLOW,
     CYAN,
+    DOUBLE_UNDERLINE,
     GREEN,
     INVERT,
     ITALIC,
@@ -155,3 +156,17 @@ META = compose(BRIGHT_BLUE, ITALIC)
 PRIMARY = compose(BRIGHT_BLUE, BOLD)
 SECONDARY = compose(WHITE, BIM)
 ACCENT = compose(BRIGHT_MAGENTA, BOLD)
+
+# ── Box / Border-friendly styles ──
+BOX_TITLE = compose(BRIGHT_CYAN, BOLD, UNDERLINE)
+BOX_LABEL = compose(BRIGHT_BLUE, BOLD)
+BOX_HINT = compose(BRIGHT_BLACK, ITALIC)
+BOX_ERROR = compose(RED, BOLD, INVERT)
+BOX_SUCCESS = compose(GREEN, BOLD, INVERT)
+
+# ── Section / Header styles ──
+SECTION = compose(CYAN, BOLD, DOUBLE_UNDERLINE)
+SUBSECTION = compose(BRIGHT_CYAN, BOLD)
+SEPARATOR = compose(BRIGHT_BLACK, BIM)
+ANCHOR = compose(BRIGHT_CYAN, UNDERLINE)
+HIGHLIGHT_BG = compose(YELLOW, BOLD, INVERT)
