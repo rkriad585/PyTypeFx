@@ -17,10 +17,10 @@ RESET = "\033[0m"
 BOLD = "\033[1m"
 BIM = "\033[2m"
 UNDERLINE = "\033[4m"
-INVERT = "\033[7m"
 ITALIC = "\033[3m"
 BLINK = "\033[5m"
-REVERSE = "\033[7m"
+INVERT = "\033[7m"
+REVERSE = INVERT
 BLINK_FAST = "\033[6m"
 BLINK_SLOW = "\033[25m"
 BRIGHT = "\033[1m"
@@ -40,7 +40,7 @@ WHITE = "\033[37m"
 GRAY = "\033[90m"
 
 # Foreground Colors (Bright)
-BRIGHT_BLACK = "\033[90m"
+BRIGHT_BLACK = GRAY
 BRIGHT_RED = "\033[91m"
 BRIGHT_GREEN = "\033[92m"
 BRIGHT_YELLOW = "\033[93m"
@@ -61,7 +61,7 @@ BG_WHITE = "\033[47m"
 BG_GRAY = "\033[100m"
 
 # Background Colors (Bright)
-BG_BRIGHT_BLACK = "\033[100m"
+BG_BRIGHT_BLACK = BG_GRAY
 BG_BRIGHT_RED = "\033[101m"
 BG_BRIGHT_GREEN = "\033[102m"
 BG_BRIGHT_YELLOW = "\033[103m"
@@ -153,21 +153,24 @@ PALETTES = {
 # HEX & RGB Helpers
 def hex_to_ansi(hex_color: str) -> str:
     """
-    Converts a HEX color string to an ANSI escape code for foreground text.
+    Converts a HEX color string to an ANSI foreground escape code.
 
-    Function Name: hex_to_ansi
+    Parameters
+    ----------
+    hex_color : str
+        The HEX color string (e.g. "#RRGGBB" or "RRGGBB").
 
-    Args:
-        hex_color (str): The HEX color string (e.g., "#RRGGBB" or "RRGGBB").
+    Returns
+    -------
+    str
+        ANSI 24-bit color escape code for the given hex value.
 
-    Returns:
-        str: The ANSI escape code for the given HEX color.
-
-    Examples:
-        >>> hex_to_ansi("#FFFFFF")
-        '\\033[38;2;255;255;255m'
-        >>> hex_to_ansi("000000")
-        '\\033[38;2;0;0;0m'
+    Examples
+    --------
+    >>> hex_to_ansi("#FFFFFF")
+    '\\033[38;2;255;255;255m'
+    >>> hex_to_ansi("000000")
+    '\\033[38;2;0;0;0m'
     """
     hex_color = hex_color.lstrip("#")
     r, g, b = (int(hex_color[i : i + 2], 16) for i in (0, 2, 4))
@@ -176,21 +179,24 @@ def hex_to_ansi(hex_color: str) -> str:
 
 def bg_hex_to_ansi(hex_color: str) -> str:
     """
-    Converts a HEX color string to an ANSI escape code for background color.
+    Converts a HEX color string to an ANSI background escape code.
 
-    Function Name: bg_hex_to_ansi
+    Parameters
+    ----------
+    hex_color : str
+        The HEX color string (e.g. "#RRGGBB" or "RRGGBB").
 
-    Args:
-        hex_color (str): The HEX color string (e.g., "#RRGGBB" or "RRGGBB").
+    Returns
+    -------
+    str
+        ANSI 24-bit background color escape code.
 
-    Returns:
-        str: The ANSI escape code for the given background HEX color.
-
-    Examples:
-        >>> bg_hex_to_ansi("#000000")
-        '\\033[48;2;0;0;0m'
-        >>> bg_hex_to_ansi("FFFFFF")
-        '\\033[48;2;255;255;255m'
+    Examples
+    --------
+    >>> bg_hex_to_ansi("#000000")
+    '\\033[48;2;0;0;0m'
+    >>> bg_hex_to_ansi("FFFFFF")
+    '\\033[48;2;255;255;255m'
     """
     hex_color = hex_color.lstrip("#")
     r, g, b = (int(hex_color[i : i + 2], 16) for i in (0, 2, 4))
@@ -199,45 +205,55 @@ def bg_hex_to_ansi(hex_color: str) -> str:
 
 def rgb_to_ansi(r: int, g: int, b: int) -> str:
     """
-    Converts RGB color values to an ANSI escape code for foreground text.
+    Converts RGB values to an ANSI foreground escape code.
 
-    Function Name: rgb_to_ansi
+    Parameters
+    ----------
+    r : int
+        Red component (0-255).
+    g : int
+        Green component (0-255).
+    b : int
+        Blue component (0-255).
 
-    Args:
-        r (int): The red component (0-255).
-        g (int): The green component (0-255).
-        b (int): The blue component (0-255).
+    Returns
+    -------
+    str
+        ANSI 24-bit foreground color escape code.
 
-    Returns:
-        str: The ANSI escape code for the given RGB color.
-
-    Examples:
-        >>> rgb_to_ansi(255, 255, 255)
-        '\\033[38;2;255;255;255m'
-        >>> rgb_to_ansi(0, 0, 0)
-        '\\033[38;2;0;0;0m'
+    Examples
+    --------
+    >>> rgb_to_ansi(255, 255, 255)
+    '\\033[38;2;255;255;255m'
+    >>> rgb_to_ansi(0, 0, 0)
+    '\\033[38;2;0;0;0m'
     """
     return f"\033[38;2;{r};{g};{b}m"
 
 def bg_rgb_to_ansi(r: int, g: int, b: int) -> str:
     """
-    Converts RGB color values to an ANSI escape code for background color.
+    Converts RGB values to an ANSI background escape code.
 
-    Function Name: bg_rgb_to_ansi
+    Parameters
+    ----------
+    r : int
+        Red component (0-255).
+    g : int
+        Green component (0-255).
+    b : int
+        Blue component (0-255).
 
-    Args:
-        r (int): The red component (0-255).
-        g (int): The green component (0-255).
-        b (int): The blue component (0-255).
+    Returns
+    -------
+    str
+        ANSI 24-bit background color escape code.
 
-    Returns:
-        str: The ANSI escape code for the given background RGB color.
-
-    Examples:
-        >>> bg_rgb_to_ansi(0, 0, 0)
-        '\\033[48;2;0;0;0m'
-        >>> bg__to_ansi(255, 255, 255)
-        '\\033[48;2;255;255;255m'
+    Examples
+    --------
+    >>> bg_rgb_to_ansi(0, 0, 0)
+    '\\033[48;2;0;0;0m'
+    >>> bg_rgb_to_ansi(255, 255, 255)
+    '\\033[48;2;255;255;255m'
     """
     return f"\033[48;2;{r};{g};{b}m"
 
@@ -245,22 +261,26 @@ def bg_rgb_to_ansi(r: int, g: int, b: int) -> str:
 # Utility Combiners
 def colorize(text: str, *style: str) -> str:
     """
-    Applies one or more ANSI styles to a text string.
+    Applies one or more ANSI style codes to a text string.
 
-    Function Name: colorize
+    Parameters
+    ----------
+    text : str
+        The text to style.
+    *style : str
+        Variable number of ANSI escape codes to apply.
 
-    Args:
-        text (str): The text to be styled.
-        *style (str): A variable number of ANSI style codes to apply.
+    Returns
+    -------
+    str
+        Styled text with ANSI reset appended.
 
-    Returns:
-        str: The styled text string, with a reset code at the end.
-
-    Examples:
-        >>> from TypeFx.colors import RED, BOLD
-        >>> colorize("Hello", RED)
-        '\\033[31mHello\\033[0m'
-        >>> colorize("World", RED, BOLD)
-        '\\033[31m\\033[1mWorld\\033[0m'
+    Examples
+    --------
+    >>> from typefx.colors import RED, BOLD
+    >>> colorize("Hello", RED)
+    '\\033[31mHello\\033[0m'
+    >>> colorize("World", RED, BOLD)
+    '\\033[31m\\033[1mWorld\\033[0m'
     """
     return "".join(style) + text + RESET

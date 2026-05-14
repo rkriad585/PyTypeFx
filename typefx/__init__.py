@@ -1,9 +1,14 @@
 __version__ = "0.1.0"
 __author__ = "RK Riad Khan"
-__email__ = "rkriadkhan@gmail.com"
+__email__ = "rkriad585@gmail.com"
 
-from TypeFx.colors import (
+from typefx._types import ColorInput, Position, Speed
+
+from typefx.colors import (
     AQUA,
+    bg_hex_to_ansi,
+    bg_rgb_to_ansi,
+    colorize,
     BARK_BROWN,
     BG_AQUA,
     BG_BLACK,
@@ -55,6 +60,9 @@ from TypeFx.colors import (
     BRIGHT_GREEN,
     BRIGHT_HEX,
     BRIGHT_MAGENTA,
+    bg_hex_to_ansi,
+    bg_rgb_to_ansi,
+    colorize,
     BRIGHT_RED,
     BRIGHT_WHITE,
     BRIGHT_YELLOW,
@@ -99,7 +107,7 @@ from TypeFx.colors import (
     WHITE,
     YELLOW,
 )
-from TypeFx.constant import (
+from typefx.constant import (
     CURSOR,
     DELAY,
     DOTS,
@@ -116,23 +124,28 @@ from TypeFx.constant import (
     START_HEX,
     TEXT,
 )
-from TypeFx.decorator import typefx
-from TypeFx.effects import BlinkEffect, SoundEffect
-from TypeFx.utility import (
+from typefx.decorator import typefx
+from typefx.effects import BlinkEffect, SoundEffect
+from typefx.utility import (
     _make_color,
     _make_delay,
+    _make_style,
+    _position_prefix,
+    _resolve_to_ansi_list,
     gradient,
     hex_to_ansi,
     rgb_to_ansi,
     supports_ansi,
     write,
 )
-from TypeFx.writers import (
+from typefx.writers import (
+    AutoCompleteWriter,
     BounceGlitchWriter,
     BounceWriter,
     DelWriter,
     GameDialog,
     GlitchWriter,
+    GradientWriter,
     HexWriter,
     HTMLWriter,
     LoopWriter,
@@ -149,6 +162,9 @@ from TypeFx.writers import (
 __all__ = [
     "__version__",
     "__author__",
+    "ColorInput",
+    "Position",
+    "Speed",
     "TypeWriter",
     "BlinkEffect",
     "SoundEffect",
@@ -167,6 +183,14 @@ __all__ = [
     "ThinkWriter",
     "BounceWriter",
     "BounceGlitchWriter",
+    "GradientWriter",
+    "_make_style",
+    "_position_prefix",
+    "_resolve_to_ansi_list",
+    "AutoCompleteWriter",
+    "bg_hex_to_ansi",
+    "bg_rgb_to_ansi",
+    "colorize",
     "gradient",
     "hex_to_ansi",
     "rgb_to_ansi",
