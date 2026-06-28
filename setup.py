@@ -1,8 +1,13 @@
+from pathlib import Path
+
 from setuptools import find_packages, setup
 
+this_dir = Path(__file__).parent
+long_description = (this_dir / "README.md").read_text()
+
 setup(
-    name="typefx",
-    version="2.1.0",
+    name="PyTypeFx",
+    version="2.1.1",
     author="RK RIAD KHAN",
     author_email="rkriad585@gmail.com",
     packages=find_packages(),
@@ -11,8 +16,9 @@ setup(
         "typing_extensions; python_version < '3.8'",
     ],
     license="MIT",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     classifiers=[
-        "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
